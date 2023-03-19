@@ -19,6 +19,7 @@ to some random server
 4. open another terminal, go to ui directory and run `npm run dev`
 5. open localhost:3000 in preferably firefox
 6. press ctrl shift m to view mobile
+7. login with `345` or `678` or there will be errors
 
 # todo
 
