@@ -32,3 +32,7 @@ to some random server
 
 # screenshots currently
 ![image](https://cdn.discordapp.com/attachments/912270605515124766/1087042899419598920/image.png)
+![image](https://cdn.discordapp.com/attachments/912270605515124766/1087043302362185799/image.png)
+![image](https://cdn.discordapp.com/attachments/912270605515124766/1087043367810109490/image.png)
+![image](https://cdn.discordapp.com/attachments/912270605515124766/1087043439331377334/image.png)
+![image](https://cdn.discordapp.com/attachments/912270605515124766/1087043502443081758/image.png)
