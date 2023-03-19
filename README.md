@@ -20,15 +20,32 @@ to some random server
 5. open localhost:3000 in preferably firefox
 6. press ctrl shift m to view mobile
 7. sign in with phone number `345` or `678` or there will be errors
+8. when u make changes to javascript it auto compiles and reloads for u so cool
 
 # todo
 
+what you should do:
 - learn react: https://blog.logrocket.com/react-conditional-rendering-9-methods/
 - learn tailwind css
 - understand index.js
 - make things pretty / add buttons that dont do anything
 
-# q & a
+actual todo:
+- add hiring description to the room view instead of like the last message sent (I do)
+- currently room dont differentiate which person is the owner which is bad (also I do)
+- make room (I do)
+- make the grey background fill the whole screen instead of awkwardly being on the side
+- add random buttons in filter
+- add tags?
+- if mobile app have the orange gradient background is it weird
+
+# q&a
+
+- does it take up space
+- yes it does quite a lot after cargo run around 2.3 GB
+
+- what are the folders
+- migrations is some database stuff; src is rust code; static is u can ignore; target is where rust puts compiled stuff
 
 # screenshots currently
 ![image](https://cdn.discordapp.com/attachments/912270605515124766/1087042899419598920/image.png)
