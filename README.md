@@ -1,6 +1,6 @@
 # 1320-prototype
 
-frontend (ui folder): next.js, react.js, tailwind css
+frontend (ui folder): next.js, react.js, tailwind css;
 backend (outermost): rust, sqlite, diesel
 
 The main thing to edit is ui/pages/index.js; other js files are in ui/components and hooks are in ui/libs
@@ -26,3 +26,7 @@ to some random server
 - learn tailwind css
 - understand index.js
 - make things pretty / add buttons that dont do anything
+
+# q & a
+
+# screenshots currently
