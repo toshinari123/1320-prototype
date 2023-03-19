@@ -31,3 +31,4 @@ to some random server
 # q & a
 
 # screenshots currently
+!(https://cdn.discordapp.com/attachments/912270605515124766/1087042899419598920/image.png)
