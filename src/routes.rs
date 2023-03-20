@@ -21,7 +21,6 @@ pub async fn index() -> impl Responder {
 	NamedFile::open_async("./static/index.html").await.unwrap()
 }
 
-
 #[get("/ws")]
 pub async fn chat_server(
 	req: HttpRequest,
@@ -66,6 +65,32 @@ pub async fn create_conversation(
         db::insert_new_conversation(&mut conn, form.deref().clone())
     }).await?.map_err(actix_web::error::ErrorUnprocessableEntity)?;
     Ok(HttpResponse::Ok().json(conversation))
+}
+
+#[post("/rooms/create")]
+pub async fn create_room(
+    pool: web::Data<DbPool>,
+    form: web::Json<models::NewRoom>,
+) -> Result<HttpResponse, Error> {
+    println!("room create!");
+    let room = web::block(move || {
+        let mut conn = pool.get()?;
+        db::insert_new_room(&mut conn, form.deref().clone())
+    }).await?.map_err(actix_web::error::ErrorUnprocessableEntity)?;
+    Ok(HttpResponse::Ok().json(room))
+}
+
+#[post("/rooms/join")]
+pub async fn join_room(
+    pool: web::Data<DbPool>,
+    form: web::Json<models::JoinRoom>,
+) -> Result<HttpResponse, Error> {
+    println!("room join!");
+    let room = web::block(move || {
+        let mut conn = pool.get()?;
+        db::join_room(&mut conn, form.deref().clone())
+    }).await?.map_err(actix_web::error::ErrorUnprocessableEntity)?;
+    Ok(HttpResponse::Ok().json(room))
 }
 
 #[get("/users/{user_id}")]
@@ -139,14 +164,14 @@ pub async fn get_rooms(
         let mut conn = pool.get()?;
         db::get_all_rooms(&mut conn)
     }).await?.map_err(actix_web::error::ErrorInternalServerError)?;
-    if !rooms.is_empty() {
+    //if !rooms.is_empty() {
         Ok(HttpResponse::Ok().json(rooms))
-    } else {
-        let res = HttpResponse::NotFound().body(json!({
-            "error": 404,
-            "messsage": format!("No rooms available at the moment")
-        }).to_string());
-        Ok(res)
-    }
+    //} else {
+    //    let res = HttpResponse::NotFound().body(json!({
+    //        "error": 404,
+    //        "messsage": format!("No rooms available at the moment")
+    //    }).to_string());
+    //    Ok(res)
+    //}
 }
 

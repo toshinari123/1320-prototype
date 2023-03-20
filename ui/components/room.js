@@ -23,9 +23,9 @@ function ChatListItem({ onSelect, room, userId, index, selectedItem }) {
             className={`${active ? 'bg-[#FDF9F0] border border-[#DEAB6C]' : 'bg-[#FAF9FE] border border-[#FAF9FE]'} p-2 rounded-[10px] shadow-sm cursor-pointer`} >
             <div className='flex justify-between items-center gap-3'>
                 <div className='flex gap-3 items-center w-full'>
-                    <Avatar>{name}</Avatar>
+                    <Avatar>{room.name}</Avatar>
                     <div className="w-full max-w-[150px]">
-                        <h3 className='font-semibold text-sm text-gray-700'>{name}</h3>
+                        <h3 className='font-semibold text-sm text-gray-700'>{room.name}</h3>
                         <p className='font-light text-xs text-gray-600 truncate'>{last_message}</p>
                     </div>
                 </div>
@@ -66,11 +66,12 @@ export default function ChatList({ onChatChange, userId }) {
         }
         onChatChange({ ...item.room, users })
     }
+    console.log(data);
     return (
         <div className="overflow-hidden space-y-3">
             {isLoading && <p>Loading chat lists.</p>}
             {
-                data.map((item, index) => {
+                !(data === null) && data.map((item, index) => {
                     return <ChatListItem
                         onSelect={(idx) => onSelectedChat(idx, item)}
                         room={{ ...item.room, users: item.users }}

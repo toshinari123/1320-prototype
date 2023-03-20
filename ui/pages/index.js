@@ -4,6 +4,8 @@ import Avatar from '../components/avatar'
 import ChatList from '../components/room'
 import Conversation from '../components/conversation'
 import createConversation from '../components/createconversation'
+import joinRoom from '../components/joinroom'
+import createRoom from '../components/createroom'
 import Login from '../components/login'
 import useConversations from '../libs/useConversation'
 import useLocalStorage from '../libs/useLocalStorage'
@@ -18,6 +20,7 @@ export default function Home() {
   const [isFilter, setIsFilter] = useState(false);
   const [isMakeRoom, setIsMakeRoom] = useState(false);
   const [room, setSelectedRoom] = useState(null);
+  const [inroom, setInroom] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [showLogIn, setShowLogIn] = useState(false);
   const [auth, setAuthUser] = useLocalStorage("user", false);
@@ -101,10 +104,36 @@ export default function Home() {
     handleMessage(message, auth.id);
     onFocusChange();
   }
+  const submitRoom = async (e) => {
+    e.preventDefault();
+    let name = e.target.name.value;
+    let desc = e.target.description.value;
+    if (name === "" || desc === "") {
+      alert("Please enter something")
+      return
+    }
+    console.log(desc);
+    let res = await createRoom({ name: name, user_id: auth.id, description: desc });
+    if (res == null) {
+      alert("Failed to create room");
+    }
+  }
+  const submitjoin = async (e) => {
+    e.preventDefault();
+    console.log('joining');
+    let res = await joinRoom({ room_id: room.id , user_id: auth.id });
+    if (res == null) {
+      alert("Failed to join room");
+    }
+  }
+  
   const updateMessages = (data) => {
     if (!data.id) return;
     fetchConversations(data.id)
     setSelectedRoom(data)
+    console.log(data.participant_ids.split(','))
+    console.log(auth.id.toString())
+    setInroom(data.participant_ids.split(',').includes(auth.id))
   }
   const signOut = () => {
     window.localStorage.removeItem("user");
@@ -151,18 +180,21 @@ export default function Home() {
                 <form onSubmit={getout}>
                   <button type='submit' className='bg-violet-500 rounded-full py-2 px-6 font-semibold text-white text-sm'>&lt;-</button>
                 </form>
-                <Avatar color='rgb(245 158 11)'>{room.users.get_target_user(auth.id)}</Avatar>
+                <Avatar color='rgb(245 158 11)'>{room.name}</Avatar>
                 <div>
-                  <p className='font-semibold text-gray-600 text-base'>{room.users.get_target_user(auth.id)}</p>
+                  <p className='font-semibold text-gray-600 text-base'>{room.name}</p>
                   <div className='text-xs text-gray-400'>{isTyping ? "Typing..." : "10:15 AM"}</div>
                 </div>
+                {!inroom && (<form onSubmit={submitjoin}>
+                  <button type='submit' className='bg-violet-500 rounded-full py-2 px-6 font-semibold text-white text-sm'>JOIN</button>
+                </form>)}
               </div>
               <hr className='bg-[#F0EEF5]' />
             </div>
             {(isLoading && room.id) && <p className="px-4 text-slate-500">Loading conversation...</p>}
             <Conversation data={messages} auth={auth} users={room.users} />
             <div className='w-full'>
-              <form onSubmit={submitMessage} className='flex gap-2 items-center rounded-full border border-violet-500 bg-violet-200 p-1 m-2'>
+                {inroom && (<form onSubmit={submitMessage} className='flex gap-2 items-center rounded-full border border-violet-500 bg-violet-200 p-1 m-2'>
                 <input
                   onBlur={onFocusChange}
                   onFocus={updateFocus}
@@ -170,7 +202,7 @@ export default function Home() {
                   className='p-2 placeholder-gray-600 text-sm w-full rounded-full bg-violet-200 focus:outline-none'
                   placeholder='Type your message here...' />
                 <button type='submit' className='bg-violet-500 rounded-full py-2 px-6 font-semibold text-white text-sm'>Send</button>
-              </form>
+              </form>)}
             </div>
           </section>)}
           {isFilter && (<section className='rounded-r-[25px] w-full max-w-[690px] grid grid-rows-[80px_minmax(450px,_1fr)_65px]'>
@@ -193,6 +225,17 @@ export default function Home() {
                 <p className='font-semibold text-gray-600 text-base'>MAKE ROOM (TODO)</p>
               </div>
               <hr className='bg-[#F0EEF5]' />
+              <form onSubmit={submitRoom}>
+                <input
+                  name="name"
+                  className='p-2 placeholder-gray-600 text-sm w-full rounded-full bg-violet-200 focus:outline-none'
+                  placeholder='Type your room name here...' />
+                <input
+                  name="description"
+                  className='p-2 placeholder-gray-600 text-sm w-full rounded-full bg-violet-200 focus:outline-none'
+                  placeholder='Type your room description here...' />
+                <button type='submit' className='bg-violet-500 rounded-full py-2 px-6 font-semibold text-white text-sm'>Send</button>
+              </form>
             </div>
           </section>)}
         </main>

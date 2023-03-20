@@ -1,0 +1,12 @@
+D:\PROJECTS\rusty\1320-prototype\target\debug\deps\actix_cors-4343cb4f1274afc6.rmeta: C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\lib.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\all_or_some.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\builder.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\error.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\inner.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\middleware.rs
+
+D:\PROJECTS\rusty\1320-prototype\target\debug\deps\libactix_cors-4343cb4f1274afc6.rlib: C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\lib.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\all_or_some.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\builder.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\error.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\inner.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\middleware.rs
+
+D:\PROJECTS\rusty\1320-prototype\target\debug\deps\actix_cors-4343cb4f1274afc6.d: C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\lib.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\all_or_some.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\builder.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\error.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\inner.rs C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\middleware.rs
+
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\lib.rs:
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\all_or_some.rs:
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\builder.rs:
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\error.rs:
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\inner.rs:
+C:\Users\toshi\.cargo\registry\src\github.com-1ecc6299db9ec823\actix-cors-0.6.4\src\middleware.rs:

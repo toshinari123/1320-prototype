@@ -5,7 +5,7 @@ use std::{
     time::SystemTime,
 };
 use uuid::Uuid;
-use crate::models::{Conversation, NewConversation, Room, RoomResponse, User};
+use crate::models::{Conversation, NewConversation, NewRoom, JoinRoom, Room, RoomResponse, User};
 type DbError = Box<dyn std::error::Error + Send + Sync>;
 
 fn iso_date() -> String {
@@ -84,6 +84,42 @@ pub fn insert_new_conversation(
    // }
     //println!("FUCK");
     Ok(new_conversation)
+}
+
+pub fn insert_new_room(
+    conn: &mut SqliteConnection,
+    new: NewRoom,
+) -> Result<Room, DbError> {
+    use crate::schema::rooms::dsl::*;
+    let new_room = Room {
+        id: Uuid::new_v4().to_string(),
+        name: new.name,
+        last_message: "".to_string(),
+        participant_ids: new.owner,
+        created_at: iso_date(),
+        json_description: new.description,
+    };
+    println!("inserting room...");
+    println!("{}", format!("{:?}", new_room));
+    diesel::insert_into(rooms).values(&new_room).execute(conn)?;
+    //if let Err(e) =  diesel::insert_into(conversations).values(&new_conversation).execute(conn){
+    //    println!("{:?}", e);
+   // }
+    //println!("FUCK");
+    Ok(new_room)
+}
+
+pub fn join_room(
+    conn: &mut SqliteConnection,
+    join: JoinRoom,
+) -> Result<String, DbError> {
+    use crate::schema::rooms::dsl::*;
+    let original_room = rooms.filter(id.eq(join.room_id.clone())).select(participant_ids).first::<String>(conn)?;
+    let new_room = original_room + "," + &join.user_id;
+    diesel::update(rooms.filter(id.eq(join.room_id)))
+        .set(participant_ids.eq(new_room.clone()))
+        .execute(conn)?;
+    Ok(new_room)
 }
 
 pub fn get_all_rooms(conn: &mut SqliteConnection) -> Result<Vec<RoomResponse>, DbError> {

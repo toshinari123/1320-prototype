@@ -15,6 +15,7 @@ diesel::table! {
         last_message -> Text,
         participant_ids -> Text,
         created_at -> Text,
+        json_description -> Text,
     }
 }
 

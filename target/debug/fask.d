@@ -1,0 +1,1 @@
+D:\PROJECTS\rusty\1320-prototype\target\debug\fask.exe: D:\PROJECTS\rusty\1320-prototype\src\db.rs D:\PROJECTS\rusty\1320-prototype\src\main.rs D:\PROJECTS\rusty\1320-prototype\src\models.rs D:\PROJECTS\rusty\1320-prototype\src\routes.rs D:\PROJECTS\rusty\1320-prototype\src\schema.rs D:\PROJECTS\rusty\1320-prototype\src\server.rs D:\PROJECTS\rusty\1320-prototype\src\session.rs

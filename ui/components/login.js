@@ -2,6 +2,7 @@ import { useState } from "react";
 async function createAccount({ username, phone }) {
     try {
         const url = "http://localhost:8080/users/create";
+        console.log(JSON.stringify({ username, phone }));
         let result = await fetch(url, {
             method: "POST",
             headers: {

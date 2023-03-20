@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=D:\PROJECTS\rusty\1320-prototype\target\debug\build\typenum-d0de74f910cf7f93\out\consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=D:\PROJECTS\rusty\1320-prototype\target\debug\build\typenum-d0de74f910cf7f93\out\op.rs
