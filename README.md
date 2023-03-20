@@ -33,7 +33,6 @@ what you should do:
 actual todo:
 - add hiring description to the room view instead of like the last message sent (I do)
 - currently room dont differentiate which person is the owner which is bad (also I do)
-- make room (I do)
 - make the grey background fill the whole screen instead of awkwardly being on the side
 - add random buttons in filter (will likely not implement actually cuz too hard)
 - add tags?
