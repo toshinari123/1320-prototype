@@ -21,6 +21,7 @@ frontend can be exported to mobile app using next.js capacitor
 5. open another terminal, go to ui directory and run `npm run dev`
 6. open localhost:3000 in preferably firefox
 7. (press ctrl shift m to view mobile)
+8. (install dbbrowser ans open chat.db)
 
 # improvements made 
 
